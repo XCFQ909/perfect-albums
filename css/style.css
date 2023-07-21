@@ -1,0 +1,187 @@
+@import "reset.css";
+@import "variables.css";
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+@media screen and (max-width: 595px) {
+    #blocking {
+        position: fixed;
+        top: 0;
+        box-sizing: border-box;
+        z-index: 5;
+        height: 100%;
+        width: 100%;
+        background-color: beige;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        font-family: 'Times New Roman', Times, serif;
+    }
+}
+
+@media screen and (min-width: 596px) {
+    #blocking {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+#frame-top {
+    position: fixed;
+    top: 0;
+    z-index: 4;
+    height: 5px;
+    width: 100%;
+    background-color: var(--frame-color);
+}
+#frame-bottom {
+    position: fixed;
+    bottom: 0;
+    z-index: 4;
+    height: 5px;
+    width: 100%;
+    background-color: var(--frame-color);
+}
+#frame-right {
+    position: fixed;
+    right: 0;
+    height: 100%;
+    width: 5px;
+    background-color: var(--frame-color);
+}
+#frame-left {
+    position: fixed;
+    left: 0;
+    height: 100%;
+    width: 5px;
+    background-color: var(--frame-color);
+}
+
+.playlist-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.playlist-header img {
+    position: absolute;
+    top: 32px;
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 70px;
+}
+
+@keyframes starPop {
+    0% {
+    }
+    50% {
+        transform: scale(1.5);
+        visibility: visible;
+    }
+    100% {
+        transform: scale(1);
+        visibility: visible;
+    }
+}
+
+.stars img {
+    visibility: hidden;
+    margin: 2px;
+    animation: starPop 0.7s ease-in-out forwards;
+}
+
+.stars img:first-child {
+    animation-delay: 1s;
+}
+.stars img:nth-child(2) {
+    animation-delay: 1.3s;
+}
+.stars img:nth-child(3) {
+    animation-delay: 1.6s;
+}
+.stars img:nth-child(4) {
+    animation-delay: 1.9s;
+}
+.stars img:nth-child(5) {
+    animation-delay: 2.2s;
+}
+
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.album-component {
+    display: flex;
+    padding: 0 25px;
+    margin-bottom: 10px;
+}
+
+.from-right {
+    justify-content: flex-end;
+} 
+
+/**  from-right까지는 album 컴포넌트 그 자체만 다룬다. 지금부터 column들 작업. */
+
+.album-component__column {
+    height: 102px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+}
+
+
+.from-left .album-component__column:last-child {
+    align-items: flex-start;
+}
+
+.album-component__column img{
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+}
+
+.from-left .album-component__column img {
+    margin-right: 15px;
+}
+
+.from-right .album-component__column img {
+    margin-left: 15px;
+}
+
+.album-component__column h1{
+    font-size: 25px;
+    margin-bottom: 3px;
+    font-weight: 700;
+}
+.album-component__column h2{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.album-component__column h3 {
+    opacity: 0.6;
+    position: absolute;
+    bottom: 8px;
+    width: 300px;
+}
+
+.album-component__column:first-child h3 {
+    display: flex;
+    justify-content: flex-end;
+}
